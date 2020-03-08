@@ -1,0 +1,20 @@
+{
+  "name": "No FB Link",
+  "version": "1.0",
+  "description": "Prevent FB from hijacking your links.",
+  "manifest_version": 2,
+  "permissions": [
+    "activeTab"
+  ],
+  "background": {
+    "scripts": ["background.js"],
+    "persistent": false
+  },
+  "content_scripts": [
+    {
+      "matches": ["https://*.workplace.com/*", "https://*.facebook.com/*"],
+      "run_at": "document_idle",
+      "js": ["contentScript.js"]
+    }
+  ]
+}
